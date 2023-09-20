@@ -1,0 +1,20 @@
+name: hello-world
+
+on: push
+
+jobs:
+  hello-world:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "$(cat hello_world.txt)hello world"
+      
+      - name: Hello world action step
+        id: hello
+        uses: bekahwhittle/hello-world-action-js@1.0
+        with:
+          who-to-greet: 'Mona the Octocat'
+
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
